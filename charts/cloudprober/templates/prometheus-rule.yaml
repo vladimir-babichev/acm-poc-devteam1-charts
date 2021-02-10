@@ -1,0 +1,13 @@
+{{- if .Values.metrics.prometheusRules }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "cloudprober.fullname" . }}
+  labels:
+    {{- include "cloudprober.labels" . | nindent 4 }}
+spec:
+  groups:
+  - name: {{ include "cloudprober.fullname" . }}
+    rules:
+    {{- toYaml .Values.metrics.prometheusRules | nindent 4 }}
+{{- end }}

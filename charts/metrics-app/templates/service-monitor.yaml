@@ -1,0 +1,15 @@
+{{- if .Values.metrics.serviceMonitor }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "metrics-app.fullname" . }}
+  labels:
+    {{- include "metrics-app.labels" . | nindent 4 }}
+spec:
+  endpoints:
+  - interval: "{{ .Values.prometheus.scanInterval }}"
+    port: "{{ .Values.prometheus.port }}"
+  selector:
+    matchLabels:
+      {{- include "metrics-app.selectorLabels" . | nindent 6 }}
+{{- end }}
