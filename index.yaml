@@ -1,0 +1,23 @@
+apiVersion: v1
+entries:
+  cloudprober:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-02-10T22:52:04.379304492Z"
+    description: Simple App SLO
+    digest: 965938a441657040b2f1391617c65060cdb9f0d3570ba50b402c4831b4c36811
+    name: cloudprober
+    urls:
+    - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/cloudprober-0.1.0.tgz
+    version: 0.1.0
+  metrics-app:
+  - apiVersion: v2
+    appVersion: v0.3.0
+    created: "2021-02-10T22:52:04.3798968Z"
+    description: Metrics App
+    digest: c1dab53efedc42f5c87fbef6dc18befa81ebbe414ad044facddb7de037337456
+    name: metrics-app
+    urls:
+    - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/metrics-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-02-10T22:52:04.377649672Z"
