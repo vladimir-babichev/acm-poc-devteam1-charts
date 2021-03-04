@@ -3,33 +3,45 @@ entries:
   cloudprober:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-03-04T15:44:21.741951883Z"
+    created: "2021-03-04T16:00:32.683115405Z"
     description: Simple App SLO
-    digest: 3446231e527724bdf09c196e0a16f6d61a6d52bfd7868f161067d647a71ba85c
+    digest: 6b70d9a058508516b8fa3bbd7c178a891114e451096b1888c0e5800c9e8c5252
     name: cloudprober
     urls:
     - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/cloudprober-0.1.0.tgz
     version: 0.1.0
   ingress-nginx:
   - apiVersion: v2
-    created: "2021-03-04T15:44:21.744973706Z"
+    created: "2021-03-04T16:00:32.686406762Z"
     dependencies:
     - name: ingress-nginx
       repository: https://kubernetes.github.io/ingress-nginx
       version: 3.23.0
-    digest: 3c70fac2642d591b956ab5155c4937e7f47e0b775055cc412ca2381bf257bdde
+    digest: 5653b9c9f9766e96f44a3f72815e9b2fe8af347c02485d1af57b342267537af6
     name: ingress-nginx
     urls:
     - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/ingress-nginx-0.1.0.tgz
     version: 0.1.0
+  kube-prometheus-stack:
+  - apiVersion: v2
+    created: "2021-03-04T16:00:32.712146375Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 13.13.0
+    digest: be2200092edcd0e1ac6ab65d4d4225afc468e26198116602510cf6264f39c592
+    name: kube-prometheus-stack
+    urls:
+    - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/kube-prometheus-stack-0.1.0.tgz
+    version: 0.1.0
   metrics-app:
   - apiVersion: v2
     appVersion: v0.3.0
-    created: "2021-03-04T15:44:21.745319509Z"
+    created: "2021-03-04T16:00:32.712578609Z"
     description: Metrics App
-    digest: 29b7e9a7e02f4f5e3e728ec0e10e6f613a95c1d8e27df80742ee403459145e94
+    digest: 3aeecdf460ae894a892d29639275e0e2d206ba4f70a9591bffd59f640ca92224
     name: metrics-app
     urls:
     - https://vladimir-babichev.github.io/acm-poc-devteam1-charts/metrics-app-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-04T15:44:21.740967875Z"
+generated: "2021-03-04T16:00:32.682501757Z"
