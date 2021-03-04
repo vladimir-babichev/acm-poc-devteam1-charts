@@ -1,0 +1,63 @@
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false
+      ruleSelectorNilUsesHelmValues: false
+      ruleSelector:
+        matchLabels:
+          release: prometheus-operator
+    ingress:
+      enabled: false
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - prometheus.host
+      paths:
+        - "/"
+  grafana:
+    ingress:
+      enabled: false
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - grafana.host
+      path: "/"
+    sidecar:
+      dashboards:
+        searchNamespace: ALL
+    # Configure dashboard provider to pre-install dashboards
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+    # List of dashbords we want to pre-installed dashboards
+    dashboards:
+      default:
+        argocd-dashboard:
+          url: https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/dashboard.json
+    adminPassword: prometheus-operator
+    grafana.ini:
+      server:
+        enable_gzip: "true"
+      analytics:
+        check_for_updates: false
+        reporting_enabled: false
+      auth.anonymous:
+        enabled: true
+  alertmanager:
+    enabled: false
+
+  # Fixes https://github.com/prometheus-community/helm-charts/issues/418
+  prometheusOperator:
+    admissionWebhooks:
+      enabled: false
+    tls:
+      enabled: false
